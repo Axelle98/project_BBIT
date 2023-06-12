@@ -1,0 +1,214 @@
+
+<!DOCTYPE>
+<html>
+<head>
+<title>Student Hostel Management System</title>
+<link rel="stylesheet" type="text/css" href="homepage.css"/>
+<link rel="stylesheet" type="text/css" href="dhtmlxcalendar.css"/>
+	
+<script src="dhtmlxcalendar.js"></script>
+	
+<style>
+		#calendar,
+		#calendar2,
+		 	{
+			border: 1px solid #909090;
+			font-family: Tahoma;
+			font-size: 12px;
+			}
+			.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
+	<script>
+		var myCalendar;
+		function doOnLoad() 
+			{
+			myCalendar = new dhtmlXCalendarObject(["calendar","calendar2",]);
+			}
+	</script>
+	
+</head>
+<body onload="doOnLoad();">
+<div id="holder"><a ><img src="images/logo.jpg" width="200px" height="100px"/></a>
+	 <div id="header">
+     
+	<ul>
+    	<li><a href="login.html">Login</a></li>
+    	<li><a href="overview.html">Overview</a></li>
+		<li><a href="payment.html">Payment</a></li>
+    	
+		 <li><a href="signup.html">Registration</a></li>
+        <li><a href="homepage1.html">Home</a></li>
+		
+    	</ul>
+    </div><!--header -->
+	<br> 
+    <div id="ab">
+ 
+
+ <button class="open-button" onclick="openForm()">Chat</button>
+   <div id="chat">
+   
+				 <form action="chat.php" method="post" class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="message" id="message" required></textarea>
+
+    <button type="submit" name="send" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
+				</form>
+    </div><!--chat-->
+	<script>
+function openForm() {
+  document.getElementById("chat").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("chat").style.display = "none";
+}
+</script>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br>
+    <div id="fd"> 
+	<br><br>
+	Click on the link to leave us your feedback <br><br>
+	<a href="feedback.html" > Feedback</a>
+	</div><!--fd-->
+	</div><!--ab-->
+        <br clear="all"/>
+ 	<div id="stud">
+    	<h1>Studio</h1>
+    		<div id="a">
+			<img src="images/studio.jpg" width="240px" height="155px" />
+            <br><br><br><br>
+        		&nbsp;&nbsp;	
+           		Studio 50,000 RWF
+          	 	<br>&nbsp;&nbsp;&nbsp;
+				
+            <a href="images/student-room.mp4"><input type="submit" value="View"></a>
+           	<a href="signup.html"><input type="submit" value="Booking"></a> </br></br>
+			 <a href="details.php"><input type="submit" value="Details"></a>
+        	</div>
+        
+          </div>
+   
+	
+	<div id="offer">
+    	<h1>Special Offers</h1>
+        	<div id="a3"><p>&nbsp;</p>
+            <br><br>
+      			  Studio room<br>
+      			 Soon we are going <br>to give discount
+    		</div>
+            <div id="b3"><p>&nbsp;</p><br>
+           <br>
+      			  Shared room<br>
+      			 	 Soon we are going <br>to give discount
+    		</div>
+            <div id="c3"><p>&nbsp;</p><br>
+            <br>
+      			  Private room<br>
+      			 	 Soon we are going <br>to give discount
+    		</div>
+    </div>
+	   <div id="pr">
+    	<h1>private room</h1>
+    		<div id="a2">
+			<img src="images/privateroom.jpg" width="240px" height="155px" />
+            <br><br><br><br>
+        		&nbsp;&nbsp;	
+           		Private room 60,000 RWF
+          	 	<br>&nbsp;&nbsp;&nbsp;
+				
+            <a href="images/student-room.mp4"><input type="submit" value="View"></a>
+           	<a href="signup.html"><input type="submit" value="Booking"></a></br></br>
+			 <a href="prd.php"><input type="submit" value="Details"></a>
+        	</div>
+     
+    </div>
+	   <div id="sr">
+    	<h1>Shared room</h1>
+    		<div id="a1">
+			<img src="images/sharedroom.jpg" width="240px" height="155px" />
+            <br><br><br><br>
+        		&nbsp;&nbsp;	
+           		Shared room 40,000 RWF
+          	 	<br>&nbsp;&nbsp;&nbsp;
+				
+            <a href="images/student-room.mp4"><input type="submit" value="View"></a>
+           	<a href="signup.html"><input type="submit" value="Booking"></a> </br></br>
+			 <a href="srd.php"><input type="submit" value="Details"></a>
+        	</div>
+     
+    </div>
+</div><!--holder -->
+</body>
+</html>

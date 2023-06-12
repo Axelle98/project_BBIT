@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Admin login</title>
+<link rel="stylesheet" type="text/css" href="login.css"/>
+<style> 
+body{   background-image:url('images/hostel-img.jpg');}
+</style>
+</head>
+<body>
+<div id="holder">
+
+
+    <div class="login">  
+	 
+	
+	
+    <form id="login" method="post" action="adminlog.php">  
+	<h2 >Login Page</h2><br> <br> 
+            <label><h3>Please fill in your credentials to login.</h3><label>	
+        <label><b>Username  
+        </b>    
+        </label>    
+        <input type="text" name="username" id="username" placeholder="Username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" >    
+                <span class="invalid-feedback"><?php echo $username_err; ?></span>       
+	   <br><br>    
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="password" name="password" id="password" placeholder="Password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"> 
+		           <span class="invalid-feedback"><?php echo $password_err; ?></span>
+        <br><br>  
+		
+        <input type="submit" class="btn btn-primary" name="submit" id="log" value="Log In Here" onclick="validation()">   
+        <br><br>   
+  	 
+    
+    </form>     
+</div> 
+    <script>  
+            function validation()  
+            {  
+                var id=document.f1.username.value;  
+                var ps=document.f1.password.value;  
+                if(id.length=="" && ps.length=="") {  
+                    alert("User Name and Password fields are empty");  
+                    return false;  
+                }  
+                else  
+                {  
+                    if(id.length=="") {  
+                        alert("User Name is empty");  
+                        return false;  
+                    }   
+                    if (ps.length=="") {  
+                    alert("Password field is empty");  
+                    return false;  
+                    }  
+                }                             
+            }  
+        </script>     
+</body>    
+</html> 

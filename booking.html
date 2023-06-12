@@ -1,0 +1,186 @@
+<?php
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+      
+                    }
+else{
+    header("location: login.html");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Booking</title>
+<link rel="stylesheet" type="text/css" href="booking.css"/>
+
+
+	
+	<script>
+		
+		
+	// Upload file
+function uploadFile() {
+
+   var files = document.getElementById("file").files;
+
+   if(files.length > 0 ){
+
+      var formData = new FormData();
+      formData.append("file", files[0]);
+
+      var xhttp = new XMLHttpRequest();
+
+      // Set POST method and ajax file path
+      xhttp.open("POST", "attachment.php", true);
+
+      // call on request changes state
+      xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+
+           var response = this.responseText;
+           if(response == 1){
+              alert("Upload successfully.");
+           }else{
+              alert("File not uploaded.");
+           }
+         }
+      };
+
+      // Send request with data
+      xhttp.send(formData);
+
+   }else{
+      alert("Please select a file");
+   }
+
+}
+	
+	</script>
+</head>
+<body onload="doOnLoad();">
+<div id="holder"><a ><img src="images/logo.jpg" width="200px" height="100px"/></a>
+	 <div id="header">
+     
+	<ul>
+    	<li><a href="login.html">Login</a></li>
+    	<li><a href="reset-password.html">Reset Pass</a></li>
+    	
+    	</ul>
+    </div><!--header -->
+	<br><br>
+	<div id="ab" >
+	</div>
+
+<div id="book">
+<h1 >Booking</h1>
+<h2> Welcome <?php echo htmlspecialchars($_SESSION["username"]); ?> </h2>
+	<div id="a1">
+    <p>&nbsp;</p>
+    
+    <form action="book1.php" method="post" enctype="multipart/form-data">
+	
+ <label>
+	 Username <b>
+	 </label>
+  <input  name="username" placeholder="Enter your username" type="text" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" required> </br></br>
+		
+		<div style="position:relative;height:80px;">
+		
+		<label for="in">Check in:</label> &nbsp;&nbsp;&nbsp;&nbsp;
+            		<input id="calendar" name="in" placeholder="2021-12-31"  type="date"  min="2021-10-01" required> <br><br>
+		
+		</div>
+		Room Type:
+			<select name="roomt" id="room">
+				     <option value="Studio">Studio</option>
+        			<option value="Private room">Private room</option>
+					<option value="Shared room">Shared room</option>
+			</select>
+			<br/><br/>
+		Duration:
+		<select name="duree" id="duration">
+				    <option value="1month">one month</option>
+        			<option value="2month">two months</option>
+					<option value="3month">three months</option>
+				    <option value="4month">four months</option>
+        			<option value="5month">five months</option>
+					<option value="6month">six months</option>
+					<option value="7month">seven months</option>
+        			<option value="8month">eight months</option>
+					<option value="9month">nine months</option>
+			        <option value="10month">ten months</option>
+        			<option value="11month">eleven months</option>
+					<option value="12month">twelve months</option>
+			</select>
+			<br/><br/>
+			 <label>
+	Hostel Name <b>
+	 </label>
+  <input  name="hostel-name" placeholder="Paste the Hostel name" type="text" class="form-control" required> </br></br>
+			
+			 <label> Commission amount to be paid : 30000RWF <b> </label> </br></br>
+		Payment type:
+		<select name="payment" id="tpayment">
+			
+        			<option value="bank payment">Bank payment</option>
+					
+					<option value="mobile money">Mobile money</option>
+			</select> </br></br>	
+	<label for="image" class=" form-control-label">Attachment</label>
+									  <input type="file" name="file" id="file" value="<?php echo $image?>">
+                                      <input type="button" id="btn_uploadfile" value="Upload"  onclick="uploadFile();" >
+		<br/><br/>
+<input id="sub" type="submit" name="submit" value="Submit" onclick="" />  </br></br>
+<a href="logout.php" style="color:white;font-size:15px;">LOGOUT</a> </br></br>
+<input id="res" type="reset" name="reset" value="Reset" />
+</form>
+    </div><!--a1-->
+</div><!--book--> 
+
+</div><!--holder-->
+
+</body>
+</html>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "booking";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+$username=$_SESSION['username'];
+$id=$_SESSION['user_id'];
+
+if(isset($_FILES['file']['name'])){
+   // file name
+   $filename = $_FILES['file']['name'];
+
+   // Location
+   $location = 'attachment/'.$filename;
+
+   // file extension
+   $file_extension = pathinfo($location, PATHINFO_EXTENSION);
+   $file_extension = strtolower($file_extension);
+
+   // Valid extensions
+   $valid_ext = array("pdf","doc","docx","jpg","png","jpeg");
+
+   $response = 0;
+   if(in_array($file_extension,$valid_ext)){
+      // Upload file
+      if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
+         $response = 1;
+      } 
+   }
+
+   echo $response;
+   exit;
+}
+?>

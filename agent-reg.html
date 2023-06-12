@@ -1,0 +1,192 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Sign up</title>
+<style>
+body{
+	background-color:#F5F5DC;
+	margin:0px;
+	padding:0px;
+	}
+#holder{
+	border:0px solid;
+	width:1348px;
+	height:auto;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+	}
+#header{
+	background-image:url(images/11.jpg);
+	background-repeat:no-repeat;
+	border:1px solid;
+	width:1347px;
+	height:100px;
+	margin-top:-100px;
+	margin-right:0px;
+	margin-left:0px;
+	}
+#header ul{
+	list-style-type:none;
+	}
+#header ul li a{
+	border:3px solid;
+	font-size:18px;
+	float:right;
+	background-color:black;
+	width:110px;
+	height:50px;
+	text-align:center;
+	margin:0px 10px 0px 10px;
+	font-weight:bold;
+	line-height:50px;
+	border-radius:50px;
+	transition-property:all;
+	transition-duration:0.4s;
+	transition-timing-function:linear;
+	}	
+#header ul li a{
+	text-decoration:none;
+	color:white;
+	}
+#header ul li a:hover{
+			background-color:blue;
+			color:white;
+			
+			}
+#header ul li a:active{
+	background-color:white;
+}
+h2 {
+  color: black;
+  text-align: center;
+  font-family: arial;
+  font-size: 40px;
+}
+#agent{  
+        width: 600px; 
+        height:500px;		
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: #23463f;  
+        border-radius: 15px ;  
+        text-align: center;  
+        color: white;  
+         padding: 20px; 
+   font-family: "Times New Roman", Times, serif;
+   font-size:20px;  
+}
+</style>
+
+
+</head>
+<body>
+<div id="holder"><a ><img src="images/logo.jpg" width="200px" height="100px"/></a>
+	 <div id="header">
+     
+	<ul>
+    	<li><a href="login.html">Login</a></li>
+    	<li><a href="overview.html">Overview</a></li>
+		<li><a href="payment.html">Payment</a></li>
+    	<li><a href="booking.html">Booking</a></li>
+		<li><a href="signup.html">Registration</a></li>
+        <li><a href="homepage1.html">Home</a></li>
+    	</ul>
+    </div>
+<h2>Agent registration Form </h2>
+<div class="sign">
+ <form id="agent" name="form" method="post" action="agent.php">
+     <label></br>Name  
+        </b>    
+        </label>    
+        <input type="text" name="name" id="name" placeholder="Enter your first name" required>    
+        </br></br> 
+
+		<label>
+		Email
+		<b>
+		</label>
+	 <input type="email" name="email" placeholder="Email" required /></br></br>
+	 <label>
+	 Telephone <b>
+	 </label>
+	  <input name="contact_no" placeholder="00250" class="form-control" type="tel"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="16" required></br></br>
+	   <label>
+	 Address <b>
+	 </label>
+	  <input name="address" placeholder="actual residence" class="form-control" type="text" required></br></br>
+	 <label>
+	 Username <b>
+	 </label>
+  <input  name="username" placeholder="Add your Username" type="text" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" required> </br></br>
+	 <label>
+	                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
+      Password <b>
+	  </label>
+     <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>" placeholder="Password" required /> </br></br>
+     <label>
+	             <span class="invalid-feedback"><?php echo $password_err; ?></span>
+   Confirm password <b>
+   </label>
+            <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>" placeholder="Re-type Password" required /> </br></br>
+		  </br></br>   
+<input id="register" type="submit" name="register" value="Register" />
+<input id="res" type="reset" name="reset" value="Reset" />  
+          
+</form>
+</div>
+    <script>
+
+			function Validate()
+{
+    if (document.form.name.value == '') 
+    {
+        alert('Please fill in your name!');
+        return false;
+    }
+	
+    else if (document.form.email.value == '') 
+    {
+       alert('Please fill in your email address!');
+       return false;
+    }
+	
+	else if (document.form.contact_no.value == '') 
+    {
+        alert('Please fill in your phone number!');
+        return false;
+    }
+	
+	else if (document.form.username.value == '') 
+    {
+        alert('Please fill in your relevant username!');
+        return false;
+    }
+    else if (document.form.password.value == '') 
+    {
+       alert('Please fill in your desired password!');
+      return false;
+	}
+    else if (document.form.confirm_password.value == '') 
+    {
+       alert('Please fill in your password again for confirmation!');
+      return false;
+    }
+    else if (document.form.password.value != 
+    document.form.confirm_password.value) 
+    {
+        alert("The two passwords are not identical! "+
+        "Please enter the same password again for confirmation");
+        return false;
+    }
+    	
+     else{
+		 alert('You are successfully registered, please wait for approval');
+	 }
+}
+	</script>
+</body>
+</html>

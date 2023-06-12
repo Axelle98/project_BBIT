@@ -1,0 +1,18 @@
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "booking"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  var sql = "INSERT INTO book (booking_id, first_name, last_name, email, telephone, check_in, duration, room_type, payment_type) VALUES ('', 'fname', 'lname', 'email', 'phone', 'in', 'duree', 'roomt', 'tpayment')";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+  });
+});

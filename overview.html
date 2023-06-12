@@ -1,0 +1,130 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Overview</title>
+<link rel="stylesheet" type="text/css" href="overview.css"/>
+<style>
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+</style>
+</head>
+<body>
+<div id="holder"><a ><img src="images/logo.jpg" width="200px" height="100px"/></a>
+	 <div id="header">
+     
+	<ul>
+    	<li><a href="login.html">Login</a></li>
+    	<li><a href="overview.html">Overview</a></li>
+		<li><a href="payment.html">Payment</a></li>
+   
+		<li><a href="signup.html">Registration</a></li>
+        <li><a href="homepage1.html">Home</a></li>
+    	</ul>
+    </div><!--header -->
+	<div id="gallery">
+		<h1>Photo</h1>
+		<img src="images/privateroom.jpg" width="150px" height="100px"/>
+		<img src="images/sharedroom.jpg" width="150px" height="100px"/>
+		<img src="images/studio.jpg" width="150px" height="100px"/></br>
+		<img src="images/4.jpg" width="150px" height="100px"/>
+		<img src="images/5.jpg" width="150px" height="100px"/>
+		<img src="images/r1.jpg" width="150px" height="100px"/></br>
+		<img src="images/6.jpg" width="150px" height="100px"/>
+		<img src="images/1.jpg" width="150px" height="100px"/>
+		<img src="images/r2.jpg" width="150px" height="100px"/><br>
+
+	</div><!--gallery-->
+	<div id="contact">
+		<h1>Contact Us</h1>
+		<div id="b1">&nbsp;&nbsp;
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;University of Kigali</h2>
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+250788303386</h2>
+		</div><!--b1-->
+		<div id="b2">&nbsp;&nbsp;
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;University of Kigali</h2>
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+250789009221</h2>
+		</div><!--b2-->
+		<div id="b3">&nbsp;&nbsp;
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;University of Kigali</h2>
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+250788303385</h2>
+		</div><!--b3-->
+		<div id="b4">&nbsp;&nbsp;
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commissionnaire</h2>
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+250787677903</h2>
+		</div><!--b4-->
+		<br><br><br><br><br>
+		<div class="popup" onclick="myFunction()"><img src="images/bk.png" width="50px" height="50px"/>
+  <span class="popuptext" id="myPopup"><b>Account number: 00202 899 00212 369</b></span>
+</div>
+		<a href="https://www.facebook.com/universityofkigaliUOK/"><img src="images/fb.jpg" width="50px" height="50px"/></a>
+		<a href="https://twitter.com/UnivOfKigali"><img src="images/tw.jpg" width="50px" height="50px"/></a>
+		<a href="https://www.youtube.com/channel/UC93NMnVHME0ePkdklRMQcRAhttps://twitter.com/UnivOfKigali"><img src="images/youtube.png" width="50px" height="50px"/></a>
+		<a href="https://www.uok.ac.rw"><img src="images/uok.png" width="50px" height="50px"/></a>
+		
+		
+	</div><!--contact-->
+</div><!--holder-->
+<script> 
+ // When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+ </script>
+</body>
+
+</html>
